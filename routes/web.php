@@ -29,4 +29,9 @@ Route::middleware('auth')->group(function () {
         }
     })->name('dashboard');
 
+    // Tugas (resourceful) - pakai parameter supaya {tugas} bukan {tuga}
+    Route::resource('/tugas', TugasController::class)->parameters([
+        'tugas' => 'tugas'
+    ]);
+
 });
