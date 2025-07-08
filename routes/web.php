@@ -34,4 +34,11 @@ Route::middleware('auth')->group(function () {
         'tugas' => 'tugas'
     ]);
 
+    // Mahasiswa - pengumpulan tugas
+    Route::get('/tugas-kuliah', [PengumpulanTugasController::class, 'index'])->name('pengumpulan.index');
+    Route::get('/tugas-kuliah/{id}/kumpul', [PengumpulanTugasController::class, 'create'])->name('pengumpulan.create');
+    Route::post('/tugas-kuliah/{id}', [PengumpulanTugasController::class, 'store'])->name('pengumpulan.store');
+
+    // Dosen - lihat hasil pengumpulan
+    Route::get('/tugas/{id}/pengumpulan', [PengumpulanTugasController::class, 'lihatKumpulan'])->name('pengumpulan.lihat');
 });
